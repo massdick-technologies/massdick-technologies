@@ -1,515 +1,452 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MASSDICK TECHNOLOGIES provides professional website development services in Kumasi, Ghana.">
+  <title>MASSDICK TECHNOLOGIES | Web Development</title>
 
-    <meta name="description" content="MASSDICK TECHNOLOGIES is a web development company based in Kumasi, Ghana. We build modern, responsive websites for businesses and individuals.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-    <title>MASSDICK TECHNOLOGIES | Web Development in Ghana</title>
+    body {
+      font-family: Arial, sans-serif;
+      background: #07111f;
+      color: #fff;
+      line-height: 1.6;
+    }
 
-    <link rel="stylesheet" href="style.css">
+    :root {
+      --cyan: #00d9ff;
+      --dark: #07111f;
+      --card: #101f32;
+      --muted: #b8c5d6;
+    }
+
+    header {
+      background: #09182a;
+      padding: 15px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #18334d;
+    }
+
+    .logo img {
+      width: 175px;
+      max-height: 65px;
+      object-fit: contain;
+      display: block;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      transition: .3s;
+    }
+
+    nav a:hover {
+      color: var(--cyan);
+    }
+
+    .hero {
+      min-height: 570px;
+      padding: 100px 7%;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(90deg, #07111f 35%, rgba(7,17,31,.75)),
+        radial-gradient(circle at 80% 30%, #07516a, #07111f 65%);
+    }
+
+    .hero-content {
+      max-width: 720px;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 65px);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--cyan);
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 25px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 5px;
+      transition: .3s;
+    }
+
+    .primary {
+      background: var(--cyan);
+      color: #06111d;
+    }
+
+    .secondary {
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      opacity: .85;
+    }
+
+    section {
+      padding: 80px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    .section-title span {
+      color: var(--cyan);
+    }
+
+    .section-title p {
+      color: var(--muted);
+    }
+
+    .about-content {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 30px 24px;
+      border: 1px solid #20364d;
+      border-radius: 12px;
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      border-color: var(--cyan);
+    }
+
+    .card h3 {
+      color: var(--cyan);
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .price {
+      font-size: 30px;
+      font-weight: bold;
+      margin: 18px 0;
+    }
+
+    .price small {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: normal;
+    }
+
+    .card ul {
+      list-style: none;
+      margin: 20px 0;
+      color: var(--muted);
+    }
+
+    .card li {
+      margin: 10px 0;
+    }
+
+    .card li::before {
+      content: "✓ ";
+      color: var(--cyan);
+    }
+
+    .featured {
+      border: 2px solid var(--cyan);
+    }
+
+    .contact {
+      text-align: center;
+      background: #09182a;
+    }
+
+    .contact p {
+      color: var(--muted);
+      margin: 12px 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px 7%;
+      background: #050c16;
+      color: var(--muted);
+    }
+
+    footer img {
+      width: 150px;
+      max-height: 55px;
+      object-fit: contain;
+      margin-bottom: 12px;
+    }
+
+    .whatsapp {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: #25d366;
+      color: white;
+      padding: 14px 19px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      z-index: 200;
+      box-shadow: 0 4px 15px #0006;
+    }
+
+    @media(max-width: 650px) {
+      header {
+        justify-content: center;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .hero {
+        min-height: 480px;
+        padding-top: 75px;
+        padding-bottom: 75px;
+      }
+
+      section {
+        padding: 65px 6%;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
-    <header class="header">
-        <nav class="navbar container">
-
-            <a href="#home" class="logo">
-                <img src="massdick-logo.png" alt="MASSDICK TECHNOLOGIES logo">
-            </a>
-
-            <button class="menu-btn" id="menu-btn"
-                aria-label="Open navigation menu"
-                aria-expanded="false">
-                ☰
-            </button>
-
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact" class="nav-contact">Contact Us</a></li>
-            </ul>
-
-        </nav>
-    </header>
-
-
-    <main>
-
-        <!-- HERO SECTION -->
-        <section class="hero" id="home">
-            <div class="container hero-content">
-
-                <div class="hero-text">
-                    <span class="eyebrow">WELCOME TO MASSDICK TECHNOLOGIES</span>
-
-                    <h1>
-                        Building Digital
-                        <span>Experiences</span>
-                        That Matter.
-                    </h1>
-
-                    <p>
-                        We create modern, responsive and professional
-                        websites that help businesses and individuals
-                        establish a strong online presence.
-                    </p>
-
-                    <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary">
-                            Start a Project
-                        </a>
-
-                        <a href="#services" class="btn btn-outline">
-                            Explore Services
-                        </a>
-                    </div>
-
-                    <div class="hero-location">
-                        <span>📍</span>
-                        Kumasi, Ghana
-                    </div>
-                </div>
-
-                <div class="hero-visual">
-                    <div class="visual-card">
-                        <div class="visual-top">
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="visual-label">YOUR DIGITAL FUTURE</span>
-                        </div>
-
-                        <div class="code-display">
-                            <p><span class="code-purple">const</span> company = {</p>
-                            <p class="code-indent">name: <span class="code-green">"MASSDICK"</span>,</p>
-                            <p class="code-indent">service: <span class="code-green">"Web Development"</span>,</p>
-                            <p class="code-indent">location: <span class="code-green">"Ghana"</span></p>
-                            <p>};</p>
-                            <br>
-                            <p><span class="code-purple">function</span> <span class="code-blue">buildFuture</span>() {</p>
-                            <p class="code-indent">return <span class="code-green">"Let's create something great!"</span>;</p>
-                            <p>}</p>
-                        </div>
-
-                        <div class="visual-footer">
-                            <span>●</span> Creative ideas. Digital solutions.
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- ABOUT SECTION -->
-        <section class="section about" id="about">
-            <div class="container about-grid">
-
-                <div class="about-image">
-                    <div class="about-image-box">
-                        <span class="about-symbol">&lt;/&gt;</span>
-                        <h3>Ideas Into Reality</h3>
-                        <p>Technology that moves businesses forward.</p>
-                    </div>
-                </div>
-
-                <div class="about-text">
-                    <span class="eyebrow">WHO WE ARE</span>
-
-                    <h2>
-                        We Build Websites
-                        <span>For The Future.</span>
-                    </h2>
-
-                    <p>
-                        MASSDICK TECHNOLOGIES is a technology-focused
-                        company based in Kumasi, Ghana. We focus on
-                        building modern websites that help businesses,
-                        organisations and individuals grow online.
-                    </p>
-
-                    <p>
-                        Our goal is to combine creativity, technology
-                        and practical solutions to deliver useful
-                        digital experiences.
-                    </p>
-
-                    <a href="#contact" class="text-link">
-                        Work With Us →
-                    </a>
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- SERVICES SECTION -->
-        <section class="section services" id="services">
-            <div class="container">
-
-                <div class="section-heading">
-                    <span class="eyebrow">WHAT WE DO</span>
-                    <h2>Our <span>Services</span></h2>
-                    <p>
-                        Digital solutions designed to help you stand out.
-                    </p>
-                </div>
-
-                <div class="service-grid">
-
-                    <article class="service-card">
-                        <div class="service-icon">&lt;/&gt;</div>
-                        <h3>Website Development</h3>
-                        <p>
-                            Professional websites built to work smoothly
-                            across phones, tablets and computers.
-                        </p>
-                        <a href="#contact">Discuss a project →</a>
-                    </article>
-
-                    <article class="service-card">
-                        <div class="service-icon">🎨</div>
-                        <h3>Web Design</h3>
-                        <p>
-                            Attractive, modern and user-friendly website
-                            designs that make a strong impression.
-                        </p>
-                        <a href="#contact">Discuss a project →</a>
-                    </article>
-
-                    <article class="service-card">
-                        <div class="service-icon">🛍️</div>
-                        <h3>Business Websites</h3>
-                        <p>
-                            Online platforms that introduce your business,
-                            showcase your services and connect with customers.
-                        </p>
-                        <a href="#contact">Discuss a project →</a>
-                    </article>
-
-                    <article class="service-card">
-                        <div class="service-icon">▣</div>
-                        <h3>Portfolio Websites</h3>
-                        <p>
-                            Personal websites that present your skills,
-                            achievements and projects professionally.
-                        </p>
-                        <a href="#contact">Discuss a project →</a>
-                    </article>
-
-                    <article class="service-card">
-                        <div class="service-icon">⚙️</div>
-                        <h3>Website Maintenance</h3>
-                        <p>
-                            Website updates, improvements and ongoing
-                            support to help keep your site running smoothly.
-                        </p>
-                        <a href="#contact">Discuss a project →</a>
-                    </article>
-
-                    <article class="service-card">
-                        <div class="service-icon">📱</div>
-                        <h3>Responsive Design</h3>
-                        <p>
-                            Websites that adapt to different screen sizes
-                            for a better experience on every device.
-                        </p>
-                        <a href="#contact">Discuss a project →</a>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- PROJECTS SECTION -->
-        <section class="section projects" id="projects">
-            <div class="container">
-
-                <div class="section-heading">
-                    <span class="eyebrow">OUR WORK</span>
-                    <h2>Featured <span>Projects</span></h2>
-                    <p>
-                        Example website concepts showing the type of
-                        digital experiences we can create.
-                    </p>
-                </div>
-
-                <div class="project-grid">
-
-                    <article class="project-card">
-                        <div class="project-preview preview-one">
-                            <span>BUSINESS WEBSITE</span>
-                            <h3>Your Business.<br>Your Online Presence.</h3>
-                            <div class="preview-line"></div>
-                        </div>
-
-                        <div class="project-info">
-                            <h3>Business Website Concept</h3>
-                            <p>A professional website concept for a business.</p>
-                            <span class="project-tag">Web Development</span>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-preview preview-two">
-                            <span>PERSONAL PORTFOLIO</span>
-                            <h3>Showcase<br>Your Talent.</h3>
-                            <div class="preview-line"></div>
-                        </div>
-
-                        <div class="project-info">
-                            <h3>Portfolio Website Concept</h3>
-                            <p>A clean portfolio concept for showcasing skills.</p>
-                            <span class="project-tag">Web Design</span>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-preview preview-three">
-                            <span>ONLINE STORE</span>
-                            <h3>Take Your<br>Shop Online.</h3>
-                            <div class="preview-line"></div>
-                        </div>
-
-                        <div class="project-info">
-                            <h3>E-commerce Website Concept</h3>
-                            <p>An online store concept for displaying products.</p>
-                            <span class="project-tag">Business Website</span>
-                        </div>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- WHY CHOOSE US -->
-        <section class="section why-us">
-            <div class="container">
-
-                <div class="section-heading">
-                    <span class="eyebrow">WHY MASSDICK TECHNOLOGIES</span>
-                    <h2>Our Approach to <span>Technology</span></h2>
-                </div>
-
-                <div class="why-grid">
-
-                    <div class="why-item">
-                        <span>01</span>
-                        <h3>Modern Design</h3>
-                        <p>We aim for clean and professional website designs.</p>
-                    </div>
-
-                    <div class="why-item">
-                        <span>02</span>
-                        <h3>Mobile Friendly</h3>
-                        <p>We build with different screen sizes in mind.</p>
-                    </div>
-
-                    <div class="why-item">
-                        <span>03</span>
-                        <h3>Clear Communication</h3>
-                        <p>We value understanding your goals and ideas.</p>
-                    </div>
-
-                    <div class="why-item">
-                        <span>04</span>
-                        <h3>Creative Solutions</h3>
-                        <p>We look for practical ways to bring ideas online.</p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- CALL TO ACTION -->
-        <section class="cta">
-            <div class="container cta-content">
-                <span class="eyebrow">LET'S BUILD SOMETHING GREAT</span>
-                <h2>Have a Project in Mind?</h2>
-                <p>
-                    Let's discuss how we can help bring your idea
-                    to life with a professional website.
-                </p>
-                <a href="#contact" class="btn btn-primary">
-                    Get in Touch
-                </a>
-            </div>
-        </section>
-
-
-        <!-- CONTACT SECTION -->
-        <section class="section contact" id="contact">
-            <div class="container">
-
-                <div class="section-heading">
-                    <span class="eyebrow">CONTACT US</span>
-                    <h2>Let's Start a <span>Conversation</span></h2>
-                    <p>
-                        Tell us about your idea or website project.
-                    </p>
-                </div>
-
-                <div class="contact-grid">
-
-                    <div class="contact-details">
-                        <h3>Get in Touch</h3>
-
-                        <p>
-                            We would be glad to hear about your project.
-                            Contact us using the details below.
-                        </p>
-
-                        <div class="contact-item">
-                            <span>📍</span>
-                            <div>
-                                <h4>Location</h4>
-                                <p>Kumasi, Ghana</p>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <span>💬</span>
-                            <div>
-                                <h4>WhatsApp</h4>
-                                <p>+233 55 993 9065</p>
-                            </div>
-                        </div>
-
-                        <a
-                            href="https://wa.me/233559939065"
-                            class="btn btn-primary whatsapp-link"
-                            target="_blank"
-                            rel="noopener noreferrer">
-                            Chat With Us on WhatsApp
-                        </a>
-                    </div>
-
-
-                    <form class="contact-form" id="contact-form">
-
-                        <label for="name">Your Name</label>
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            placeholder="Enter your name"
-                            required>
-
-                        <label for="email">Email Address</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="Enter your email"
-                            required>
-
-                        <label for="service">Service Needed</label>
-                        <select id="service" name="service" required>
-                            <option value="">Select a service</option>
-                            <option>Website Development</option>
-                            <option>Web Design</option>
-                            <option>Business Website</option>
-                            <option>Portfolio Website</option>
-                            <option>Website Maintenance</option>
-                            <option>Other</option>
-                        </select>
-
-                        <label for="message">Your Message</label>
-                        <textarea
-                            id="message"
-                            name="message"
-                            rows="5"
-                            placeholder="Tell us about your project..."
-                            required></textarea>
-
-                        <button type="submit" class="btn btn-primary">
-                            Send Message on WhatsApp
-                        </button>
-
-                        <p class="form-note">
-                            Your message will open in WhatsApp for you
-                            to review and send.
-                        </p>
-
-                    </form>
-
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container footer-content">
-
-            <div class="footer-brand">
-                <a href="#home" class="footer-logo">
-                    <img src="massdick-logo.png"
-                         alt="MASSDICK TECHNOLOGIES logo">
-                </a>
-
-                <p>
-                    Innovating the Web. Building Your Digital Future.
-                </p>
-            </div>
-
-            <div class="footer-links">
-                <h3>Quick Links</h3>
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </div>
-
-            <div class="footer-contact">
-                <h3>Contact</h3>
-                <p>Kumasi, Ghana</p>
-                <a href="https://wa.me/233559939065"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    WhatsApp: +233 55 993 9065
-                </a>
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-            <p>
-                © <span id="year"></span> MASSDICK TECHNOLOGIES.
-                All rights reserved.
-            </p>
-        </div>
-    </footer>
-
-
-    <!-- FLOATING WHATSAPP BUTTON -->
-    <
-        href="https://wa.me/233559939065"
-        class="floating-whatsapp"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat with us on WhatsApp">
-        WhatsApp
-  
-    <a href="https://api.whatsapp.com/send?phone=233559939065"
-   class="whatsapp-btn"
-   target="_blank">
-   Chat with Us on WhatsApp
+<header>
+  <a href="#home" class="logo">
+    <img src="Massdick-logo.png" alt="MASSDICK TECHNOLOGIES Logo">
+  </a>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>Building Your <span>Digital Future</span></h1>
+    <p>
+      We create modern, responsive and professional websites
+      that help businesses establish a strong online presence.
+    </p>
+    <a class="btn primary" href="#services">Explore Our Services</a>
+    <a class="btn secondary"
+       href="https://wa.me/233559939065">Contact Us</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-title">
+    <h2>About <span>Us</span></h2>
+    <p>Technology. Creativity. Innovation.</p>
+  </div>
+
+  <div class="about-content">
+    <p>
+      MASSDICK TECHNOLOGIES is a technology-focused business
+      based in Kumasi, Ghana. We help individuals and businesses
+      build their online presence through modern website design
+      and development.
+    </p>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-title">
+    <h2>Our <span>Services</span></h2>
+    <p>Digital solutions designed for your business.</p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Website Development</h3>
+      <p>Professional websites designed to represent your business online.</p>
+    </div>
+
+    <div class="card">
+      <h3>Business Websites</h3>
+      <p>Modern websites that introduce your services and connect you with customers.</p>
+    </div>
+
+    <div class="card">
+      <h3>Responsive Design</h3>
+      <p>Websites that work smoothly across mobile phones, tablets and computers.</p>
+    </div>
+
+    <div class="card">
+      <h3>Website Maintenance</h3>
+      <p>Updates and improvements to help keep your website current.</p>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="section-title">
+    <h2>Our <span>Pricing</span></h2>
+    <p>Choose a package that suits your project.</p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>Basic Website</h3>
+      <div class="price">GH₵500</div>
+      <p>For individuals and small projects.</p>
+      <ul>
+        <li>Simple website design</li>
+        <li>Mobile-friendly layout</li>
+        <li>Contact information</li>
+        <li>Basic website setup</li>
+      </ul>
+      <a class="btn primary"
+         href="https://wa.me/233559939065?text=I%20am%20interested%20in%20the%20Basic%20Website%20package">
+         Get Started
+      </a>
+    </div>
+
+    <div class="card featured">
+      <h3>Business Website</h3>
+      <div class="price">GH₵1,000</div>
+      <p>For growing businesses and brands.</p>
+      <ul>
+        <li>Professional website design</li>
+        <li>Multiple website sections</li>
+        <li>Mobile-friendly layout</li>
+        <li>WhatsApp integration</li>
+        <li>Contact section</li>
+      </ul>
+      <a class="btn primary"
+         href="https://wa.me/233559939065?text=I%20am%20interested%20in%20the%20Business%20Website%20package">
+         Get Started
+      </a>
+    </div>
+
+    <div class="card">
+      <h3>Premium Website</h3>
+      <div class="price">GH₵1,800<small>+</small></div>
+      <p>For advanced website projects.</p>
+      <ul>
+        <li>Custom website design</li>
+        <li>Advanced sections</li>
+        <li>Responsive layout</li>
+        <li>Enhanced functionality</li>
+        <li>Project support</li>
+      </ul>
+      <a class="btn primary"
+         href="https://wa.me/233559939065?text=I%20am%20interested%20in%20the%20Premium%20Website%20package">
+         Get Started
+      </a>
+    </div>
+
+  </div>
+
+  <p style="text-align:center;color:#b8c5d6;margin-top:25px">
+    Prices are starting estimates. Final quotations depend on project requirements.
+  </p>
+</section>
+
+<section class="contact" id="contact">
+  <div class="section-title">
+    <h2>Let's Work <span>Together</span></h2>
+    <p>Have a project in mind? Let's discuss it.</p>
+  </div>
+
+  <p><strong>Location:</strong> Kumasi, Ghana</p>
+  <p><strong>WhatsApp:</strong> +233 55 993 9065</p>
+
+  <a class="btn primary"
+     href="https://wa.me/233559939065">
+     Chat With Us on WhatsApp
+  </a>
+</section>
+
+</main>
+
+<footer>
+  <img src="Massdick-logo.png" alt="MASSDICK TECHNOLOGIES">
+  <p>Building Your Digital Future.</p>
+  <p>© <span id="year"></span> MASSDICK TECHNOLOGIES. All rights reserved.</p>
+</footer>
+
+<a class="whatsapp"
+   href="https://wa.me/233559939065"
+   target="_blank"
+   rel="noopener noreferrer">
+   WhatsApp
 </a>
 
+<script>
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
 
-    <
 </body>
 </html>
